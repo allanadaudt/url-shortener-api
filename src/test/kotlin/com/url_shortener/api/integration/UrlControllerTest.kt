@@ -33,7 +33,7 @@ import kotlin.test.assertEquals
 @AutoConfigureMockMvc
 @ActiveProfiles("test")
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
-class UrlShortenerControllerTest {
+class UrlControllerTest {
 
     @Autowired
     private lateinit var mockMvc: MockMvc
