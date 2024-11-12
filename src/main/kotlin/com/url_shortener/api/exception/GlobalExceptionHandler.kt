@@ -1,13 +1,15 @@
 package com.url_shortener.api.exception
 
+import com.url_shortener.api.exception.to.ErrorInfoTO
+import com.url_shortener.api.exception.to.ErrorTO
 import org.springframework.http.HttpStatus
-import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.MethodArgumentNotValidException
 import org.springframework.web.bind.annotation.ExceptionHandler
 import org.springframework.web.bind.annotation.ResponseStatus
-import javax.lang.model.type.ErrorType
+import org.springframework.web.bind.annotation.RestControllerAdvice
 
-class ExceptionHandler {
+@RestControllerAdvice
+class GlobalExceptionHandler {
 
     @ExceptionHandler(MethodArgumentNotValidException::class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
