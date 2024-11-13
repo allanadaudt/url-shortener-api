@@ -27,5 +27,7 @@ module "eks" {
       desired_size = var.node_group_desired_size
     }
   }
+
+  cluster_endpoint_public_access = true
 }
 
