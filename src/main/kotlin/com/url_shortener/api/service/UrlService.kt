@@ -37,11 +37,9 @@ class UrlService(
     }
 
     fun getOriginalUrl(id: String): String? {
-        return try {
-            repository.findById(id).orElse(null)?.originalUrl
-        } catch (e: Exception) {
-            throw UrlShorteningException("Failed to retrieve original URL for identifier: $id", e)
-        }
+        return repository.findById(id)
+            .orElseThrow { IllegalArgumentException("Record with id $id not found") }
+            .originalUrl
     }
 
     fun deleteUrl(id: String) {

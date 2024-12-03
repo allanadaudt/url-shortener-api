@@ -1,4 +1,5 @@
 resource "aws_db_instance" "url_shortener_postgresql" {
+  identifier           = "url-shortener"
   allocated_storage    = 20
   storage_type         = "gp2"
   engine               = "postgres"
@@ -23,7 +24,7 @@ resource "aws_db_instance" "url_shortener_postgresql" {
     Name = "UrlShortenerRDS"
   }
 
-  skip_final_snapshot = true  # Pular o snapshot final quando a instância for destruída
+  skip_final_snapshot = true
 }
 
 output "rds_endpoint" {
@@ -40,3 +41,14 @@ resource "aws_db_subnet_group" "url_shortener_subnet_group" {
     Name = "url-shortener-db-subnet-group"
   }
 }
+
+resource "aws_security_group_rule" "rds_ingress_from_eks" {
+  description       = "Allow EKS to access PostgreSQL RDS"
+  security_group_id = aws_security_group.all_worker_mgmt.id  # RDS Security Group
+  from_port         = 5432
+  to_port           = 5432
+  protocol          = "tcp"
+  source_security_group_id = aws_security_group.all_worker_mgmt.id  # EKS Security Group
+  type              = "ingress"
+}
+

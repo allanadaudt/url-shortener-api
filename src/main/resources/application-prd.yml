@@ -1,0 +1,13 @@
+server:
+  port: 8080
+
+  datasource:
+    url: jdbc:postgresql://url-shortener.c5gi2ggeg9db.us-west-1.rds.amazonaws.com:5432/urlShortenerDb
+    username: postgres
+    password: postgres
+    driverClassName: org.postgresql.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    show-sql: true
+    hibernate:
+      ddl-auto: create

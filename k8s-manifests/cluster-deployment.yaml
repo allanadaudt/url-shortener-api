@@ -19,6 +19,9 @@ spec:
           image: "381492214831.dkr.ecr.us-west-1.amazonaws.com/url-shortener-api:latest"
           ports:
             - containerPort: 8080
+          env:
+            - name: SPRING_PROFILES_ACTIVE
+              value: prd
           livenessProbe:
             httpGet:
               path: /health

@@ -3,7 +3,7 @@ server:
 
 spring:
   datasource:
-    url: jdbc:postgresql://terraform-20241113145123008000000001.c5gi2ggeg9db.us-west-1.rds.amazonaws.com:5432/urlShortenerDb
+    url: jdbc:postgresql://localhost:5432/postgres
     username: postgres
     password: postgres
     driverClassName: org.postgresql.Driver

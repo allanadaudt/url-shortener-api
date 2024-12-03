@@ -26,14 +26,14 @@ After a successful start, the application will be accessible at http://localhost
 > **Request Body Example**:
 ```json
   {
-    "originalUrl": "https://www.example.com",
-    "urlIdentifier": "example"
+  "original_url": "https://www.example.com",
+  "url_identifier": "example"
   }
 ```
 > **Response Example**: Status Code: 200 OK
 ```json
 {
-"shortenedUrl": "http://short.url/example"
+"shortened_url": "http://short.url/example"
 }
 ```
 
@@ -134,7 +134,7 @@ kubectl get nodes
 Navigate to the directory where your Kubernetes manifests are stored, then run:
 
 ```
-kubectl apply -f .
+`kubectl apply -f .`
 ```
 
 This command will apply all Kubernetes manifests in the current directory to the cluster, including deployments, services and ingresses.
